@@ -1,16 +1,51 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Modal Example</title>
+<link rel="stylesheet" href="styles.css"> <!-- Assuming your CSS file is named styles.css -->
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
+
+<button id="openModal">Open Modal</button>
+
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Modal Header</h2>
+      <button class="close-modal">&times;</button>
+    </div>
+    <div class="modal-body">
+      <p>Modal Body Content</p>
+    </div>
+  </div>
+</div>
+
+<script>
+// JavaScript for modal functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const openModalBtn = document.getElementById('openModal');
+  const modal = document.getElementById('myModal');
+  const closeModalBtn = modal.querySelector('.close-modal');
+
+  // Open modal
+  openModalBtn.addEventListener('click', function() {
+    modal.style.display = 'block';
+  });
+
+  // Close modal when clicking outside modal or close button
+  window.addEventListener('click', function(event) {
+    if (event.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+
+  closeModalBtn.addEventListener('click', function() {
+    modal.style.display = 'none';
+  });
+});
 </script>
 
 </body>
-
 </html>
